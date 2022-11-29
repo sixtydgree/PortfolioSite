@@ -61,7 +61,7 @@ var pageTitle = document.title;
 var opacity = 0;
 var intervalId = 0;
 
-
+// if anyone can recomend an improvement to this code I would be happy to implament it. I'm not crazy about the redundancy.
 
 if(pageTitle === "Home"){
     window.onload = fadeIn;
