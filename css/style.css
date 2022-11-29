@@ -3,14 +3,7 @@
 
 nav {
     opacity: 0;
-    animation: 0.75s fadein 0.5s forwards;
     font-family: 'Raleway', sans-serif;
-}
-
-@keyframes fadein {
-    100% {
-        opacity: 1;
-    }
 }
 
 

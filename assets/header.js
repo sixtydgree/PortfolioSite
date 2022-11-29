@@ -6,7 +6,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML =
         `  
-        <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
+        <nav id="myNav" class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
         <div class="container-fluid">
             <a href="https://www.paulmartinusjohnson.me" class="navbar-brand h1">Paul Johnson</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -55,3 +55,46 @@ class Header extends HTMLElement {
 }
 
 customElements.define('header-component', Header);
+
+
+var pageTitle = document.title;
+var opacity = 0;
+var intervalId = 0;
+
+
+
+if(pageTitle === "Home"){
+    window.onload = fadeIn;
+    function fadeIn(){
+        setInterval(show, 65);
+    };
+    function show(){
+        
+    var navBar = document.getElementById("myNav");
+    opacity = Number(window.getComputedStyle(navBar).getPropertyValue("opacity"));
+        
+        if(opacity < 1){
+            opacity = opacity + 0.1;
+            navBar.style.opacity = opacity;
+        }else{
+            clearInterval(intervalId);
+        }};
+    }else if(pageTitle !== "Home"){
+        window.onload = fadeIn;
+    function fadeIn(){
+        setInterval(show, 0);
+    };
+    function show(){
+        
+    var navBar = document.getElementById("myNav");
+    opacity = Number(window.getComputedStyle(navBar).getPropertyValue("opacity"));
+        
+        if(opacity < 1){
+            opacity = opacity + 1;
+            navBar.style.opacity = opacity;
+        }else{
+            clearInterval(intervalId);
+        }};
+    }
+
+    
